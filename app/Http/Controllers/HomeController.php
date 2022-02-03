@@ -14,7 +14,7 @@ class HomeController extends Controller
      * @return void
      */
     public function __construct()
-    {
+    { //ok
         $this->middleware('auth');
     }
 

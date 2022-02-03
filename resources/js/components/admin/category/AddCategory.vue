@@ -46,9 +46,12 @@ export default {
   },
   methods: {
     addCategory() {
-      this.form.post("/add_category").then((response) => {
-        console.log(response);
-      });
+      this.form
+        .post("/add_category")
+        .then((response) => {
+          this.$router.push("/category-list");
+        })
+        .catch(() => {});
     },
   },
 };

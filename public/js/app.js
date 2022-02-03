@@ -1972,9 +1972,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addCategory: function addCategory() {
+      var _this = this;
+
       this.form.post("/add_category").then(function (response) {
-        console.log(response);
-      });
+        _this.$router.push("/category-list");
+      })["catch"](function () {});
     }
   }
 });

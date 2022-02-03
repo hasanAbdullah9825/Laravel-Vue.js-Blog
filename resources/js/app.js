@@ -5,19 +5,20 @@
  */
 import Vue from "vue";
 import VueRouter from "vue-router";
+import Form from 'vform'
+window.Form = Form;
+
+
 
 require("./bootstrap");
 Vue.use(VueRouter);
-// window.Vue = require('vue');
 
 Vue.component(
-    "example-component",
-    require("./components/ExampleComponent.vue").default
+    "admin-master",
+    require("./components/admin/AdminMaster.vue").default
 );
-const routes = [
-    // { path: "/foo", component: Foo },
-    // { path: "/bar", component: Bar },
-];
+
+import { routes } from "./route";
 
 const router = new VueRouter({
     routes: routes, // short for `routes: routes`

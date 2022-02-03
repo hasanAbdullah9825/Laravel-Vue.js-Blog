@@ -1,0 +1,95 @@
+<template>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Category List</h3>
+          <div class="card-tools">
+            <button class="btn btn-primary">
+              <router-link to="/add-category" style="color: #fff"
+                >Add Category</router-link
+              >
+            </button>
+          </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+            <div class="row">
+              <div class="col-sm-12 col-md-6"></div>
+              <div class="col-sm-12 col-md-6"></div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <table
+                  id="example2"
+                  class="table table-bordered table-hover dataTable dtr-inline"
+                  role="grid"
+                  aria-describedby="example2_info"
+                >
+                  <thead>
+                    <tr role="row">
+                      <th
+                        class="sorting sorting_asc"
+                        tabindex="0"
+                        aria-controls="example2"
+                        rowspan="1"
+                        colspan="1"
+                        aria-sort="ascending"
+                        aria-label="Rendering engine: activate to sort column descending"
+                      >
+                        Sl
+                      </th>
+                      <th
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="example2"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Browser: activate to sort column ascending"
+                      >
+                        Category Name
+                      </th>
+                      <th
+                        class="sorting"
+                        tabindex="0"
+                        aria-controls="example2"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Platform(s): activate to sort column ascending"
+                      >
+                        Action
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="even">
+                      <td class="sorting_1 dtr-control">Gecko</td>
+                      <td>Netscape Browser 8</td>
+                      <td><a href="">Edit</a>| <a href="">Delete</a></td>
+                    </tr>
+                    <tr class="odd">
+                      <td class="sorting_1 dtr-control">Gecko</td>
+                      <td>Netscape Navigator 9</td>
+                      <td><a href="">Edit</a> |<a href="">Delete</a></td>
+                    </tr>
+                    <tr class="even">
+                      <td class="sorting_1 dtr-control">Gecko</td>
+                      <td>Mozilla 1.0</td>
+                      <td><a href="">Edit</a>| <a href="">Delete</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.card-body -->
+      </div>
+    </div>
+    <!-- /.col -->
+  </div>
+</template>
+<script>
+export default {};
+</script>

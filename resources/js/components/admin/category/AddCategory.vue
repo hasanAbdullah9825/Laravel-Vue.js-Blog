@@ -50,6 +50,13 @@ export default {
         .post("/add_category")
         .then((response) => {
           this.$router.push("/category-list");
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Category updated successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         })
         .catch(() => {});
     },

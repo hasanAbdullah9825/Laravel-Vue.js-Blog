@@ -25,6 +25,9 @@ const router = new VueRouter({
     mode: "history",
 });
 
+import Swal from 'sweetalert2'
+window.Swal = Swal;
+
 const app = new Vue({
     el: "#app",
     router,

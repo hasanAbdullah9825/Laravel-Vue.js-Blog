@@ -64,18 +64,8 @@
                   </thead>
                   <tbody>
                     <tr class="even">
-                      <td class="sorting_1 dtr-control">Gecko</td>
-                      <td>Netscape Browser 8</td>
-                      <td><a href="">Edit</a>| <a href="">Delete</a></td>
-                    </tr>
-                    <tr class="odd">
-                      <td class="sorting_1 dtr-control">Gecko</td>
-                      <td>Netscape Navigator 9</td>
-                      <td><a href="">Edit</a> |<a href="">Delete</a></td>
-                    </tr>
-                    <tr class="even">
-                      <td class="sorting_1 dtr-control">Gecko</td>
-                      <td>Mozilla 1.0</td>
+                      <td class="sorting_1 dtr-control">1</td>
+                      <td>{{ getallCategory }}</td>
                       <td><a href="">Edit</a>| <a href="">Delete</a></td>
                     </tr>
                   </tbody>
@@ -91,5 +81,11 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  computed: {
+    getallCategory() {
+      return this.$store.getters.getCategory;
+    },
+  },
+};
 </script>

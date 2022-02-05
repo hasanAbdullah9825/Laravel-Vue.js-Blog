@@ -10,6 +10,12 @@ window.Form = Form;
 
 import Vuex from 'vuex'
 Vue.use(Vuex)
+import moment from 'moment'
+
+Vue.filter('dateFormat', function (value) {
+
+    return moment(value).format("MMM Do YY");
+})
 
 import Swal from 'sweetalert2'
 window.Swal = Swal;

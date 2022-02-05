@@ -24,7 +24,7 @@ export default
         },
         mutations: {
             categories(state, data) {
-                return state.category = data;
+                state.category = data;
 
             }
         }

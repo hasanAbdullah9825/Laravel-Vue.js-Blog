@@ -50,6 +50,7 @@
                       >
                         Category Name
                       </th>
+                      <th>Date</th>
                       <th
                         class="sorting"
                         tabindex="0"
@@ -70,6 +71,7 @@
                     >
                       <td class="sorting_1 dtr-control">{{ index + 1 }}</td>
                       <td>{{ category.cat_name }}</td>
+                      <td>{{ category.created_at | dateFormat }}</td>
                       <td><a href="">Edit</a>| <a href="">Delete</a></td>
                     </tr>
                   </tbody>

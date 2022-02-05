@@ -21,4 +21,10 @@ class CategoryController extends Controller
 
         return ['message' => 'inserted'];
     }
+
+    public function all_category()
+    {
+        $categories = Category::all();
+        return response()->json(["categories" => $categories]);
+    }
 }

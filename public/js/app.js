@@ -2082,11 +2082,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     getallCategory: function getallCategory() {
       return this.$store.getters.getCategory;
     }
+  },
+  mounted: function mounted() {
+    this.$store.dispatch("allCategory");
   }
 });
 
@@ -41341,17 +41348,27 @@ var render = function () {
                     [
                       _vm._m(1),
                       _vm._v(" "),
-                      _c("tbody", [
-                        _c("tr", { staticClass: "even" }, [
-                          _c("td", { staticClass: "sorting_1 dtr-control" }, [
-                            _vm._v("1"),
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(_vm.getallCategory))]),
-                          _vm._v(" "),
-                          _vm._m(2),
-                        ]),
-                      ]),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.getallCategory, function (category, index) {
+                          return _c(
+                            "tr",
+                            { key: category.id, staticClass: "even" },
+                            [
+                              _c(
+                                "td",
+                                { staticClass: "sorting_1 dtr-control" },
+                                [_vm._v(_vm._s(index + 1))]
+                              ),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(category.cat_name))]),
+                              _vm._v(" "),
+                              _vm._m(2, true),
+                            ]
+                          )
+                        }),
+                        0
+                      ),
                     ]
                   ),
                 ]),
@@ -58126,7 +58143,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component("admin-master", __webpack_r
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: _route__WEBPACK_IMPORTED_MODULE_2__["routes"],
   // short for `routes: routes`
-  mode: "history"
+  mode: "hash"
 });
 
 var store = new vuex__WEBPACK_IMPORTED_MODULE_4__["default"].Store(_store_index__WEBPACK_IMPORTED_MODULE_6__["default"]);
@@ -58534,8 +58551,18 @@ __webpack_require__.r(__webpack_exports__);
       return state.category;
     }
   },
-  actions: {},
-  mutations: {}
+  actions: {
+    allCategory: function allCategory(context) {
+      axios.get('/category').then(function (response) {
+        context.commit("categories", response.data.categories);
+      });
+    }
+  },
+  mutations: {
+    categories: function categories(state, data) {
+      return state.category = data;
+    }
+  }
 });
 
 /***/ }),

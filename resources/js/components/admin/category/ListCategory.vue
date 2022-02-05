@@ -63,9 +63,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="even">
-                      <td class="sorting_1 dtr-control">1</td>
-                      <td>{{ getallCategory }}</td>
+                    <tr
+                      class="even"
+                      v-for="(category, index) in getallCategory"
+                      :key="category.id"
+                    >
+                      <td class="sorting_1 dtr-control">{{ index + 1 }}</td>
+                      <td>{{ category.cat_name }}</td>
                       <td><a href="">Edit</a>| <a href="">Delete</a></td>
                     </tr>
                   </tbody>
@@ -86,6 +90,10 @@ export default {
     getallCategory() {
       return this.$store.getters.getCategory;
     },
+  },
+
+  mounted() {
+    this.$store.dispatch("allCategory");
   },
 };
 </script>

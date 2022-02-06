@@ -2,6 +2,7 @@ import AdminHome from "./components/admin/AdminHome";
 import CategoryList from "./components/admin/category/ListCategory";
 import AddCategory from "./components/admin/category/AddCategory";
 import ExampleComponent from "./components/ExampleComponent";
+import EditCategory from "./components/admin/category/EditCategory";
 
 export const routes = [
     {
@@ -16,8 +17,14 @@ export const routes = [
         path: "/add-category",
         component: AddCategory,
     },
+
+    {
+        path: "/edit-category/:categoryId",
+        component: EditCategory,
+    },
     {
         path: "/post",
         component: ExampleComponent,
     }
+
 ];

@@ -75,7 +75,9 @@
                       <td>{{ category.cat_name }}</td>
                       <td>{{ category.created_at | dateFormat }}</td>
                       <td>
-                        <a href="">Edit</a>|
+                        <router-link :to="`/edit-category/${category.id}`"
+                          >Edit |</router-link
+                        >
                         <a href="" @click.prevent="deleteCategory(category.id)"
                           >Delete</a
                         >
@@ -103,20 +105,16 @@ export default {
   methods: {
     deleteCategory(id) {
       axios.delete("/category/" + id).then((response) => {
-        console.log(response.data);
         this.$store.dispatch("allCategory");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Category Deleted successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
     },
-
-    // deleteCategory(id) {
-    //   axios.get("/category/" + id).then(() => {
-    //     this.$store.dispatch("allCategory");
-    //     Toast.fire({
-    //       icon: "success",
-    //       title: "Category deleted successfully",
-    //     });
-    //   });
-    // },
   },
   mounted() {
     this.$store.dispatch("allCategory");

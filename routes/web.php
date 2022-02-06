@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\CategoryController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,3 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/add_category', 'CategoryController@add_category');
 Route::get('/category', 'CategoryController@all_category');
 Route::delete('/category/{id}', 'CategoryController@delete_category');
+Route::get('/category/edit/{id}', 'CategoryController@edit_category');
+Route::post('/category/update/{id}', 'CategoryController@update_category');

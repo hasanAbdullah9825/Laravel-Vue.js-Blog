@@ -2177,8 +2177,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< HEAD
 //
 //
+=======
+>>>>>>> f0c563c8e544533a9e3a4ff0e43ba350ad564cf6
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     getallCategory: function getallCategory() {
@@ -2190,6 +2193,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios["delete"]("/category/" + id).then(function (response) {
+<<<<<<< HEAD
         _this.$store.dispatch("allCategory");
 
         Swal.fire({
@@ -2201,6 +2205,22 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     }
+=======
+        console.log(response.data);
+
+        _this.$store.dispatch("allCategory");
+      });
+    } // deleteCategory(id) {
+    //   axios.get("/category/" + id).then(() => {
+    //     this.$store.dispatch("allCategory");
+    //     Toast.fire({
+    //       icon: "success",
+    //       title: "Category deleted successfully",
+    //     });
+    //   });
+    // },
+
+>>>>>>> f0c563c8e544533a9e3a4ff0e43ba350ad564cf6
   },
   mounted: function mounted() {
     this.$store.dispatch("allCategory");
@@ -63159,6 +63179,7 @@ var render = function () {
                                 ),
                               ]),
                               _vm._v(" "),
+<<<<<<< HEAD
                               _c(
                                 "td",
                                 [
@@ -63188,6 +63209,27 @@ var render = function () {
                                 ],
                                 1
                               ),
+=======
+                              _c("td", [
+                                _c("a", { attrs: { href: "" } }, [
+                                  _vm._v("Edit"),
+                                ]),
+                                _vm._v("|\n                      "),
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: { href: "" },
+                                    on: {
+                                      click: function ($event) {
+                                        $event.preventDefault()
+                                        return _vm.deleteCategory(category.id)
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("Delete")]
+                                ),
+                              ]),
+>>>>>>> f0c563c8e544533a9e3a4ff0e43ba350ad564cf6
                             ]
                           )
                         }),

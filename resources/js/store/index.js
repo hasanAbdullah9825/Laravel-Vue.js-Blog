@@ -24,6 +24,7 @@ export default
         },
         mutations: {
             categories(state, data) {
+                console.log("hiii");
                 state.category = data;
 
             }

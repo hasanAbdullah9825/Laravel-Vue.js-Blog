@@ -2088,11 +2088,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     getallCategory: function getallCategory() {
       return this.$store.getters.getCategory;
     }
+  },
+  methods: {
+    deleteCategory: function deleteCategory(id) {
+      var _this = this;
+
+      axios["delete"]("/category/" + id).then(function (response) {
+        console.log(response.data);
+
+        _this.$store.dispatch("allCategory");
+      });
+    } // deleteCategory(id) {
+    //   axios.get("/category/" + id).then(() => {
+    //     this.$store.dispatch("allCategory");
+    //     Toast.fire({
+    //       icon: "success",
+    //       title: "Category deleted successfully",
+    //     });
+    //   });
+    // },
+
   },
   mounted: function mounted() {
     this.$store.dispatch("allCategory");
@@ -62944,7 +62971,25 @@ var render = function () {
                                 ),
                               ]),
                               _vm._v(" "),
-                              _vm._m(2, true),
+                              _c("td", [
+                                _c("a", { attrs: { href: "" } }, [
+                                  _vm._v("Edit"),
+                                ]),
+                                _vm._v("|\n                      "),
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: { href: "" },
+                                    on: {
+                                      click: function ($event) {
+                                        $event.preventDefault()
+                                        return _vm.deleteCategory(category.id)
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("Delete")]
+                                ),
+                              ]),
                             ]
                           )
                         }),
@@ -63031,16 +63076,6 @@ var staticRenderFns = [
           [_vm._v("\n                      Action\n                    ")]
         ),
       ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { attrs: { href: "" } }, [_vm._v("Edit")]),
-      _vm._v("| "),
-      _c("a", { attrs: { href: "" } }, [_vm._v("Delete")]),
     ])
   },
 ]
@@ -80149,6 +80184,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mutations: {
     categories: function categories(state, data) {
+      console.log("hiii");
       state.category = data;
     }
   }

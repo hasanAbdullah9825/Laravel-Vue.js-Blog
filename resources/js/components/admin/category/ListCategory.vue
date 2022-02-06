@@ -1,3 +1,5 @@
+
+
 <template>
   <div class="row">
     <div class="col-12">
@@ -72,7 +74,12 @@
                       <td class="sorting_1 dtr-control">{{ index + 1 }}</td>
                       <td>{{ category.cat_name }}</td>
                       <td>{{ category.created_at | dateFormat }}</td>
-                      <td><a href="">Edit</a>| <a href="">Delete</a></td>
+                      <td>
+                        <a href="">Edit</a>|
+                        <a href="" @click.prevent="deleteCategory(category.id)"
+                          >Delete</a
+                        >
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -93,7 +100,24 @@ export default {
       return this.$store.getters.getCategory;
     },
   },
+  methods: {
+    deleteCategory(id) {
+      axios.delete("/category/" + id).then((response) => {
+        console.log(response.data);
+        this.$store.dispatch("allCategory");
+      });
+    },
 
+    // deleteCategory(id) {
+    //   axios.get("/category/" + id).then(() => {
+    //     this.$store.dispatch("allCategory");
+    //     Toast.fire({
+    //       icon: "success",
+    //       title: "Category deleted successfully",
+    //     });
+    //   });
+    // },
+  },
   mounted() {
     this.$store.dispatch("allCategory");
   },

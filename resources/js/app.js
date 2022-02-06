@@ -1,13 +1,13 @@
 
 import Vue from "vue";
-
+//Adding Vue router
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
 import { routes } from "./route";
-
+//Adding V-form
 import Form from 'vform'
 window.Form = Form;
-
+//Adding VueX
 import Vuex from 'vuex'
 Vue.use(Vuex)
 import moment from 'moment'
@@ -16,7 +16,7 @@ Vue.filter('dateFormat', function (value) {
 
     return moment(value).format("MMM Do YY");
 })
-
+//Adding sweet alert
 import Swal from 'sweetalert2'
 window.Swal = Swal;
 

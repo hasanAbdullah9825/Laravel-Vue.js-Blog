@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/{anypath}', 'HomeController@index')->where('path', '.*');
 Route::post('/add_category', 'CategoryController@add_category');
 Route::get('/category', 'CategoryController@all_category');
+Route::delete('/category/{id}', 'CategoryController@delete_category');

@@ -105,6 +105,7 @@ export default {
   methods: {
     deleteCategory(id) {
       axios.delete("/category/" + id).then((response) => {
+<<<<<<< HEAD
         this.$store.dispatch("allCategory");
         Swal.fire({
           position: "top-end",
@@ -115,6 +116,22 @@ export default {
         });
       });
     },
+=======
+        console.log(response.data);
+        this.$store.dispatch("allCategory");
+      });
+    },
+
+    // deleteCategory(id) {
+    //   axios.get("/category/" + id).then(() => {
+    //     this.$store.dispatch("allCategory");
+    //     Toast.fire({
+    //       icon: "success",
+    //       title: "Category deleted successfully",
+    //     });
+    //   });
+    // },
+>>>>>>> f0c563c8e544533a9e3a4ff0e43ba350ad564cf6
   },
   mounted() {
     this.$store.dispatch("allCategory");

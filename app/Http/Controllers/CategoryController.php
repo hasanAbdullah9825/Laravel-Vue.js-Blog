@@ -24,6 +24,7 @@ class CategoryController extends Controller
 
     public function all_category()
     {
+
         $categories = Category::all();
         return response()->json(["categories" => $categories]);
     }

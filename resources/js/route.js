@@ -3,6 +3,7 @@ import CategoryList from "./components/admin/category/ListCategory";
 import AddCategory from "./components/admin/category/AddCategory";
 import ExampleComponent from "./components/ExampleComponent";
 import EditCategory from "./components/admin/category/EditCategory";
+import PostList from "./components/admin/post/PostList";
 
 export const routes = [
     {
@@ -24,7 +25,7 @@ export const routes = [
     },
     {
         path: "/post",
-        component: ExampleComponent,
+        component: PostList,
     }
 
 ];

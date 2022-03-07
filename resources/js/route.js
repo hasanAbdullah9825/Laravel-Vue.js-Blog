@@ -1,9 +1,9 @@
 import AdminHome from "./components/admin/AdminHome";
 import CategoryList from "./components/admin/category/ListCategory";
 import AddCategory from "./components/admin/category/AddCategory";
-import ExampleComponent from "./components/ExampleComponent";
 import EditCategory from "./components/admin/category/EditCategory";
 import PostList from "./components/admin/post/PostList";
+import NewPost from "./components/admin/post/NewPost";
 
 export const routes = [
     {
@@ -26,6 +26,10 @@ export const routes = [
     {
         path: "/post",
         component: PostList,
+    }
+    , {
+        path: "/add-post",
+        component: NewPost
     }
 
 ];

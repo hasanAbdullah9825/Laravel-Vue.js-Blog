@@ -37,16 +37,6 @@
                   </thead>
 
                   <tbody>
-                    <!-- <tr v-for="(post, index) in getAllPosts" >
-                      <td>{{ index + 1 }}</td>
-                      <td v-if="post.user">{{ post.user.name }}</td>
-                      <td v-if="post.category">category</td>
-                      <td>{{ post.title }}</td>
-                      <td>{{ post.description }}</td>
-                      <td><img :src="post.photo" width="50px" alt="" /></td>
-                      <td>Edit delete</td>
-                    </tr> -->
-
                     <tr v-for="(post, index) in getAllPosts" :key="post.id">
                       <td>{{ index + 1 }}</td>
                       <td v-if="post.user">{{ post.user.name }}</td>

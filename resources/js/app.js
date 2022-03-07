@@ -10,18 +10,12 @@ window.Form = Form;
 //Adding VueX
 import Vuex from 'vuex'
 Vue.use(Vuex)
-import moment from 'moment'
 
-Vue.filter('dateFormat', function (value) {
-
-    return moment(value).format("MMM Do YY");
-});
-Vue.filter('shortlength', function (text, length, suffix) {
-    return text.substring(0, length) + suffix;
-});
 //Adding sweet alert
 import Swal from 'sweetalert2'
 window.Swal = Swal;
+// Importing all filtering logic from filter.js
+import Filter from "./filter"
 
 
 require("./bootstrap");

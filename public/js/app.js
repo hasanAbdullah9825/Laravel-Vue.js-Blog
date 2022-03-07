@@ -2179,10 +2179,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     getallCategory: function getallCategory() {
-      return this.$store.getters.getCategory;
+      return this.$store.getters.getCategory; //console.log(this.$store.getters.getCategory);
     }
   },
   methods: {
@@ -2282,9 +2283,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  computed: {},
-  methods: {}
+  computed: {
+    getAllPosts: function getAllPosts() {
+      return this.$store.getters.getPosts;
+    }
+  },
+  methods: {},
+  mounted: function mounted() {
+    this.$store.dispatch("fetchAllPost");
+  }
 });
 
 /***/ }),
@@ -63403,7 +63420,96 @@ var render = function () {
           ]),
         ]),
         _vm._v(" "),
-        _vm._m(0),
+        _c("div", { staticClass: "card-body" }, [
+          _c(
+            "div",
+            {
+              staticClass: "dataTables_wrapper dt-bootstrap4",
+              attrs: { id: "example2_wrapper" },
+            },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-sm-12" }, [
+                  _c(
+                    "table",
+                    {
+                      staticClass: "table table-bordered table-hover",
+                      attrs: { id: "example2" },
+                    },
+                    [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.getAllPosts, function (post, index) {
+                          return _c("tr", { key: post.id }, [
+                            _c("td", [_vm._v(_vm._s(index + 1))]),
+                            _vm._v(" "),
+                            post.user
+                              ? _c("td", [_vm._v(_vm._s(post.user.name))])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            post.category
+                              ? _c("td", [
+                                  _vm._v(
+                                    "\n                      " +
+                                      _vm._s(
+                                        _vm._f("shortlength")(
+                                          post.category.cat_name,
+                                          10,
+                                          "..."
+                                        )
+                                      ) +
+                                      "\n                    "
+                                  ),
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "yoo" +
+                                  _vm._s(
+                                    _vm._f("shortlength")(post.title, 30, "...")
+                                  )
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm._f("shortlength")(
+                                    post.description,
+                                    30,
+                                    "..."
+                                  )
+                                )
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c("img", {
+                                attrs: {
+                                  src: post.photo,
+                                  width: "50px",
+                                  alt: "",
+                                },
+                              }),
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v("Edit delete")]),
+                          ])
+                        }),
+                        0
+                      ),
+                    ]
+                  ),
+                ]),
+              ]),
+            ]
+          ),
+        ]),
       ]),
     ]),
   ])
@@ -63413,75 +63519,32 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-body" }, [
-      _c(
-        "div",
-        {
-          staticClass: "dataTables_wrapper dt-bootstrap4",
-          attrs: { id: "example2_wrapper" },
-        },
-        [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-sm-12 col-md-6" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-12 col-md-6" }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-sm-12" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-bordered table-hover dataTable dtr-inline",
-                  attrs: {
-                    id: "example2",
-                    role: "grid",
-                    "aria-describedby": "example2_info",
-                  },
-                },
-                [
-                  _c("thead", [
-                    _c("tr", { attrs: { role: "row" } }, [
-                      _c("th", [_vm._v("Sl")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("User Name")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Category Name")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Post Title")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Post Description")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Photo")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Action")]),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("tbody", [
-                    _c("tr", { staticClass: "even" }, [
-                      _c("td"),
-                      _vm._v(" "),
-                      _c("td"),
-                      _vm._v(" "),
-                      _c("td"),
-                      _vm._v(" "),
-                      _c("td"),
-                      _vm._v(" "),
-                      _c("td"),
-                      _vm._v(" "),
-                      _c("td"),
-                      _vm._v(" "),
-                      _c("td"),
-                    ]),
-                  ]),
-                ]
-              ),
-            ]),
-          ]),
-        ]
-      ),
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-12 col-md-6" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-12 col-md-6" }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("SL")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("User")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Category")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Title")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Description")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Photo")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Actions")]),
+      ]),
     ])
   },
 ]
@@ -80166,6 +80229,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_4__
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.filter('dateFormat', function (value) {
   return moment__WEBPACK_IMPORTED_MODULE_5___default()(value).format("MMM Do YY");
+});
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.filter('shortlength', function (text, length, suffix) {
+  return text.substring(0, length) + suffix;
 }); //Adding sweet alert
 
 
@@ -80723,24 +80789,36 @@ var routes = [{
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: {
-    category: "this is a category"
+    categories: "this is a category",
+    posts: ''
   },
   getters: {
     getCategory: function getCategory(state) {
-      return state.category;
+      return state.categories;
+    },
+    getPosts: function getPosts(state) {
+      return state.posts;
     }
   },
   actions: {
     allCategory: function allCategory(context) {
       axios.get('/category').then(function (response) {
-        context.commit("categories", response.data.categories);
+        context.commit("categories", response.data.categories); // console.log(response.data.categories);
+      });
+    },
+    fetchAllPost: function fetchAllPost(context) {
+      axios.get('/posts').then(function (response) {
+        context.commit("posts", response.data.posts);
       });
     }
   },
   mutations: {
     categories: function categories(state, data) {
-      console.log("hiii");
-      state.category = data;
+      //console.log("hiii");
+      state.categories = data; // console.log(state.category[0].cat_name);
+    },
+    posts: function posts(state, data) {
+      state.posts = data;
     }
   }
 });

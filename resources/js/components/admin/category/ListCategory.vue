@@ -65,6 +65,7 @@
                       </th>
                     </tr>
                   </thead>
+
                   <tbody>
                     <tr
                       class="even"
@@ -100,6 +101,7 @@ export default {
   computed: {
     getallCategory() {
       return this.$store.getters.getCategory;
+      //console.log(this.$store.getters.getCategory);
     },
   },
   methods: {

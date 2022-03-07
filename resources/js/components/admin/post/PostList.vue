@@ -23,32 +23,41 @@
             </div>
             <div class="row">
               <div class="col-sm-12">
-                <table
-                  id="example2"
-                  class="table table-bordered table-hover dataTable dtr-inline"
-                  role="grid"
-                  aria-describedby="example2_info"
-                >
+                <table id="example2" class="table table-bordered table-hover">
                   <thead>
-                    <tr role="row">
-                      <th>Sl</th>
-                      <th>User Name</th>
-                      <th>Category Name</th>
-                      <th>Post Title</th>
-                      <th>Post Description</th>
+                    <tr>
+                      <th>SL</th>
+                      <th>User</th>
+                      <th>Category</th>
+                      <th>Title</th>
+                      <th>Description</th>
                       <th>Photo</th>
-                      <th>Action</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
+
                   <tbody>
-                    <tr class="even">
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                    <!-- <tr v-for="(post, index) in getAllPosts" >
+                      <td>{{ index + 1 }}</td>
+                      <td v-if="post.user">{{ post.user.name }}</td>
+                      <td v-if="post.category">category</td>
+                      <td>{{ post.title }}</td>
+                      <td>{{ post.description }}</td>
+                      <td><img :src="post.photo" width="50px" alt="" /></td>
+                      <td>Edit delete</td>
+                    </tr> -->
+
+                    <tr v-for="(post, index) in getAllPosts" :key="post.id">
+                      <td>{{ index + 1 }}</td>
+                      <td v-if="post.user">{{ post.user.name }}</td>
+                      <td v-if="post.category">
+                        {{ post.category.cat_name | shortlength(10, "...") }}
+                      </td>
+
+                      <td>yoo{{ post.title | shortlength(30, "...") }}</td>
+                      <td>{{ post.description | shortlength(30, "...") }}</td>
+                      <td><img :src="post.photo" width="50px" alt="" /></td>
+                      <td>Edit delete</td>
                     </tr>
                   </tbody>
                 </table>
@@ -64,7 +73,14 @@
 </template>
 <script>
 export default {
-  computed: {},
+  computed: {
+    getAllPosts() {
+      return this.$store.getters.getPosts;
+    },
+  },
   methods: {},
+  mounted() {
+    this.$store.dispatch("fetchAllPost");
+  },
 };
 </script>

@@ -41,7 +41,7 @@ $factory->define(Category::class, function (Faker $faker) {
 $factory->define(Post::class, function (Faker $faker) {
     return [
         'user_id' => $faker->randomDigit,
-        'cat_id' => $faker->randomDigit,
+        'category_id' => $faker->randomDigit,
         'title' => $faker->sentence(),
         'description' => $faker->paragraph(),
         'photo' => $faker->imageUrl(),

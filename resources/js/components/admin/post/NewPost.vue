@@ -65,7 +65,13 @@
             </div>
 
             <div class="form-group">
-              <input type="file" class="form-control" />
+              <!-- <input
+                type="file"
+                name="photo"
+                class="form-control"
+                @change="showImage($event)"
+              /> -->
+              <input @change="showImage($event)" name="photo" type="file" />
             </div>
           </div>
         </div>
@@ -95,7 +101,17 @@ export default {
       return this.$store.getters.getCategory;
     },
   },
-  methods: {},
+  methods: {
+    showImage(event) {
+      // need to implement this method
+      // let file = event.target.files[0];
+      // let reader = new FileReader();
+      // reader.onload = (event) => {
+      //   console.log(event.target.result);
+      // };
+      // reader.readAsDataURL(file);
+    },
+  },
   mounted() {
     this.$store.dispatch("allCategory");
   },
